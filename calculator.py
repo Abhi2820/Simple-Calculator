@@ -1,7 +1,6 @@
 from tkinter import *
 
 expression = ""
-
 def press(num):
 	global expression
 	expression = expression + str(num)
@@ -11,7 +10,6 @@ def equalpress():
 	try:
 
 		global expression
-		
 		total = str(eval(expression))
 		equation.set(total)
 		expression = ""
@@ -32,12 +30,13 @@ if __name__ == "__main__":
 	gui = Tk()
 	gui.configure(background="SteelBlue3")
 	gui.title("SIMPLE CALCULATOR")
-	gui.geometry("378x387+500+200")
+	gui.geometry("395x395+500+200")
 	equation = StringVar()
 	Display  = Entry(gui,bd=30,bg="SteelBlue3", textvariable=equation,font =('ariel',20,"bold"),justify ="right")
 	Display.grid(columnspan=5, row=0)
 
-
+	buttonsq = Button(gui,font=("bold") , text=' x² ',bg='steelblue',command=lambda: press("**2"), height=1, width=6,bd=11)
+	buttonsq.grid(row=2, column=2)
 	AC = Button(gui,font=("bold") ,text='AC',bg='pink',command=clear, height=1, width=6,bd=11)
 	AC.grid(row=2, column=3)
 
